@@ -63,7 +63,7 @@
 
       <div class="flex items-center space-x-2">
         <!-- Pop-Out / Picture-in-Picture Button -->
-        <button id="pipBtn" onclick="togglePip()" title="Pop out (Always on Top)" class="px-3 py-2 text-xs font-bold rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white flex items-center gap-1.5 transition-all shadow-md">
+        <button id="pipBtn" class="px-3 py-2 text-xs font-bold rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white flex items-center gap-1.5 transition-all shadow-md">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
           </svg>
@@ -71,7 +71,7 @@
         </button>
 
         <!-- Theme Toggle Button -->
-        <button id="themeToggleBtn" onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        <button id="themeToggleBtn" class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500">
           <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
           </svg>
@@ -95,26 +95,26 @@
 
       <!-- Quick Preset Buttons -->
       <div class="flex flex-wrap justify-center gap-2 mb-4 w-full max-w-md">
-        <button onclick="setPresetMinutes(5)" class="px-4 py-2 text-sm font-semibold rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-indigo-500 hover:text-white dark:hover:bg-indigo-600 transition-all">
+        <button id="preset5Btn" class="px-4 py-2 text-sm font-semibold rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-indigo-500 hover:text-white dark:hover:bg-indigo-600 transition-all">
           5 Min
         </button>
-        <button onclick="setPresetMinutes(10)" class="px-4 py-2 text-sm font-semibold rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-indigo-500 hover:text-white dark:hover:bg-indigo-600 transition-all">
+        <button id="preset10Btn" class="px-4 py-2 text-sm font-semibold rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-indigo-500 hover:text-white dark:hover:bg-indigo-600 transition-all">
           10 Min
         </button>
-        <button onclick="addMinutes(5)" class="px-4 py-2 text-sm font-semibold rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all text-slate-600 dark:text-slate-400">
+        <button id="add5Btn" class="px-4 py-2 text-sm font-semibold rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all text-slate-600 dark:text-slate-400">
           +5 Min
         </button>
-        <button onclick="addMinutes(10)" class="px-4 py-2 text-sm font-semibold rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all text-slate-600 dark:text-slate-400">
+        <button id="add10Btn" class="px-4 py-2 text-sm font-semibold rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 transition-all text-slate-600 dark:text-slate-400">
           +10 Min
         </button>
       </div>
 
       <!-- Primary Control Buttons (Start/Pause, Reset) -->
       <div class="flex items-center justify-center gap-4 mb-6 w-full max-w-xs">
-        <button id="startPauseBtn" onclick="toggleTimer()" class="flex-1 py-3 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-lg shadow-lg shadow-indigo-500/25 transition-all transform active:scale-95">
+        <button id="startPauseBtn" class="flex-1 py-3 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-lg shadow-lg shadow-indigo-500/25 transition-all transform active:scale-95">
           Start
         </button>
-        <button id="resetBtn" onclick="resetTimer()" class="py-3 px-6 rounded-2xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 font-bold text-lg transition-all transform active:scale-95 text-slate-700 dark:text-slate-300">
+        <button id="resetBtn" class="py-3 px-6 rounded-2xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 font-bold text-lg transition-all transform active:scale-95 text-slate-700 dark:text-slate-300">
           Reset
         </button>
       </div>
@@ -124,12 +124,12 @@
         <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Set Custom Duration</label>
         <div class="flex items-center justify-center space-x-2">
           <div class="flex flex-col items-center">
-            <input type="number" id="minInput" min="0" max="999" value="5" placeholder="0" oninput="applyCustomTime()" class="w-20 p-2 text-center text-lg font-mono rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <input type="number" id="minInput" min="0" max="999" value="5" placeholder="0" class="w-20 p-2 text-center text-lg font-mono rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
             <span class="text-xs text-slate-400 mt-1">Minutes</span>
           </div>
           <span class="text-2xl font-mono text-slate-400 pb-5">:</span>
           <div class="flex flex-col items-center">
-            <input type="number" id="secInput" min="0" max="59" value="0" placeholder="00" oninput="applyCustomTime()" class="w-20 p-2 text-center text-lg font-mono rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <input type="number" id="secInput" min="0" max="59" value="0" placeholder="00" class="w-20 p-2 text-center text-lg font-mono rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
             <span class="text-xs text-slate-400 mt-1">Seconds</span>
           </div>
         </div>
@@ -150,7 +150,7 @@
       </svg>
       <h2 class="text-xl font-bold mb-2">Timer Popped Out</h2>
       <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">The interactive timer controls are currently running in an active floating window.</p>
-      <button onclick="restoreWindow()" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition-all shadow-md">
+      <button id="restoreBtn" class="w-full py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold transition-all shadow-md">
         Restore to Full Screen
       </button>
     </div>
@@ -165,42 +165,70 @@
     let flashTimeout = null;
     let pipWindow = null;
 
-    // DOM Elements
+    // DOM References
     const appBody = document.getElementById('appBody');
     const appContainer = document.getElementById('appContainer');
     const placeholderMessage = document.getElementById('placeholderMessage');
     const displayCard = document.getElementById('displayCard');
     const timerDisplay = document.getElementById('timerDisplay');
     const startPauseBtn = document.getElementById('startPauseBtn');
+    const resetBtn = document.getElementById('resetBtn');
     const minInput = document.getElementById('minInput');
     const secInput = document.getElementById('secInput');
     const statusLabel = document.getElementById('statusLabel');
     const sunIcon = document.getElementById('sunIcon');
     const moonIcon = document.getElementById('moonIcon');
     const pipBtnText = document.getElementById('pipBtnText');
+    const pipBtn = document.getElementById('pipBtn');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const preset5Btn = document.getElementById('preset5Btn');
+    const preset10Btn = document.getElementById('preset10Btn');
+    const add5Btn = document.getElementById('add5Btn');
+    const add10Btn = document.getElementById('add10Btn');
+    const restoreBtn = document.getElementById('restoreBtn');
+
+    // Attach Event Listeners explicitly (ensuring compatibility across window transfers)
+    function bindEventListeners() {
+      pipBtn.onclick = togglePip;
+      themeToggleBtn.onclick = toggleTheme;
+      startPauseBtn.onclick = toggleTimer;
+      resetBtn.onclick = resetTimer;
+      preset5Btn.onclick = () => setPresetMinutes(5);
+      preset10Btn.onclick = () => setPresetMinutes(10);
+      add5Btn.onclick = () => addMinutes(5);
+      add10Btn.onclick = () => addMinutes(10);
+      minInput.oninput = applyCustomTime;
+      secInput.oninput = applyCustomTime;
+      restoreBtn.onclick = restoreWindow;
+    }
 
     // Theme Logic
     function initTheme() {
       const savedTheme = localStorage.getItem('theme');
       if (savedTheme === 'light' || (!savedTheme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
         document.documentElement.classList.remove('dark');
+        if (pipWindow) pipWindow.document.documentElement.classList.remove('dark');
         sunIcon.classList.add('hidden');
         moonIcon.classList.remove('hidden');
       } else {
         document.documentElement.classList.add('dark');
+        if (pipWindow) pipWindow.document.documentElement.classList.add('dark');
         sunIcon.classList.remove('hidden');
         moonIcon.classList.add('hidden');
       }
     }
 
     function toggleTheme() {
-      if (document.documentElement.classList.contains('dark')) {
+      const isDark = document.documentElement.classList.contains('dark');
+      if (isDark) {
         document.documentElement.classList.remove('dark');
+        if (pipWindow) pipWindow.document.documentElement.classList.remove('dark');
         localStorage.setItem('theme', 'light');
         sunIcon.classList.add('hidden');
         moonIcon.classList.remove('hidden');
       } else {
         document.documentElement.classList.add('dark');
+        if (pipWindow) pipWindow.document.documentElement.classList.add('dark');
         localStorage.setItem('theme', 'dark');
         sunIcon.classList.remove('hidden');
         moonIcon.classList.add('hidden');
@@ -241,6 +269,7 @@
 
       timerDisplay.textContent = timeString;
       document.title = isRunning ? `(${timeString}) Timer` : 'Stoplight Countdown Timer';
+      if (pipWindow) pipWindow.document.title = document.title;
 
       applyStoplightColor();
     }
@@ -363,15 +392,14 @@
         return;
       }
 
-      // Modern Document Picture-in-Picture API
       if ('documentPictureInPicture' in window) {
         try {
           pipWindow = await window.documentPictureInPicture.requestWindow({
-            width: 420,
-            height: 520,
+            width: 440,
+            height: 540,
           });
 
-          // Copy style tags and stylesheets into PiP window
+          // Copy style tags and scripts into PiP window head
           [...document.styleSheets].forEach((styleSheet) => {
             try {
               const cssRules = [...styleSheet.cssRules].map((rule) => rule.cssText).join('');
@@ -387,75 +415,29 @@
             }
           });
 
-          // Sync dark/light mode class
+          // Sync theme class to PiP HTML root
           if (document.documentElement.classList.contains('dark')) {
             pipWindow.document.documentElement.classList.add('dark');
           }
 
-          // Move the complete interactive container into PiP
+          // Append main app node to PiP document
           pipWindow.document.body.className = "bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-sans antialiased p-0 m-0";
           pipWindow.document.body.appendChild(appContainer);
           placeholderMessage.classList.remove('hidden');
           pipBtnText.textContent = "Restore";
 
-          pipWindow.addEventListener('unload', () => {
+          pipWindow.addEventListener('pagehide', () => {
             restoreWindow();
           });
           return;
         } catch (err) {
-          console.warn("Document PiP failed, attempting standard popup fallback:", err);
+          console.warn("Document PiP request failed:", err);
         }
-      }
-
-      // Standard Popup Window Fallback
-      const popup = window.open('', 'TimerPopout', 'width=420,height=540,resizable=yes');
-      if (popup) {
-        pipWindow = popup;
-        popup.document.write(`
-          <!DOCTYPE html>
-          <html class="${document.documentElement.classList.contains('dark') ? 'dark' : ''}">
-            <head>
-              <title>Timer Popout</title>
-              <script src="https://cdn.tailwindcss.com"><\/script>
-              <style>
-                .timer-bg-green { background-color: #16a34a !important; color: white !important; }
-                .timer-bg-yellow { background-color: #d97706 !important; color: white !important; }
-                .flash-alert { animation: flashStoplight 0.6s infinite alternate !important; }
-                @keyframes flashStoplight { 0% { background-color: #dc2626; color: white; } 100% { background-color: #1e293b; color: #f87171; } }
-              </style>
-            </head>
-            <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col p-0 m-0 font-sans">
-              <div id="popContent"></div>
-            </body>
-          </html>
-        `);
-        popup.document.getElementById('popContent').appendChild(appContainer);
-        placeholderMessage.classList.remove('hidden');
-        pipBtnText.textContent = "Restore";
-
-        popup.addEventListener('beforeunload', () => {
-          restoreWindow();
-        });
+      } else {
+        alert("Picture-in-Picture window mode requires a compatible browser like Chrome or Edge.");
       }
     }
 
     function restoreWindow() {
       if (pipWindow) {
-        try {
-          pipWindow.close();
-        } catch(e) {}
-        pipWindow = null;
-      }
-      appBody.insertBefore(appContainer, placeholderMessage);
-      placeholderMessage.classList.add('hidden');
-      pipBtnText.textContent = "Pop Out";
-    }
-
-    // Initialize on page load
-    window.onload = function() {
-      initTheme();
-      updateDisplay();
-    };
-  </script>
-</body>
-</html>
+        const tempWin = pip
